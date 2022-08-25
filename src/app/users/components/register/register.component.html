@@ -1,0 +1,30 @@
+
+<section class="container">
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit($event)" class="mt-5" *ngIf="!submitted">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="name" id="name">
+    </div>
+    <div class="mb-3">
+      <label for="lastname" class="form-label">Apellido</label>
+      <input type="text" class="form-control" formControlName="lastname" id="lastname">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+
+  </form>
+
+
+
+  <div *ngIf="submitted">
+    <h3>Información de tu registro: </h3>
+
+    <pre>
+      {{ this.registerForm.value | json }}
+    </pre>
+
+  </div>
+
+</section>
